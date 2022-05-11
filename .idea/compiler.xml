@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="recl-comment" />
+        <module name="recl-song" />
+        <module name="recl-interface" />
+        <module name="recl-common" />
+        <module name="recl-utils" />
+        <module name="recl-base" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="recl-base" options="-parameters" />
+      <module name="recl-comment" options="-parameters" />
+      <module name="recl-common" options="-parameters" />
+      <module name="recl-interface" options="-parameters" />
+      <module name="recl-music" options="" />
+      <module name="recl-song" options="-parameters" />
+      <module name="recl-utils" options="-parameters" />
+    </option>
+  </component>
+</project>
