@@ -9,6 +9,7 @@
         <module>recl-common/recl-base</module>
         <module>recl-common/recl-utils</module>
         <module>recl-comment</module>
+        <module>recl-song-list</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

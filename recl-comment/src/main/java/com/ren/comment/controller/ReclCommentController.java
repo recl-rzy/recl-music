@@ -68,8 +68,8 @@ public class ReclCommentController {
     public Result updateCommentLike(@PathVariable String id, @RequestParam int up) {
         UpdateWrapper<ReclComment> wrapper = new UpdateWrapper<>();
         wrapper.set("up", up);
-        boolean update = reclCommentService.update(new ReclComment().setId(id), wrapper);
-        if(update) return Result.ok()
+        boolean res = reclCommentService.update(new ReclComment().setId(id), wrapper);
+        if(res) return Result.ok()
                 .message("点赞成功");
         else return Result.error()
                 .message("点赞失败");
@@ -89,8 +89,8 @@ public class ReclCommentController {
                 .setUserId(user_id);
         if(type == 1) comment.setSongListId(song_list_id);
         if(type == 0) comment.setSongId(song_id);
-        boolean save = reclCommentService.save(comment);
-        if(save)  return Result.ok()
+        boolean res = reclCommentService.save(comment);
+        if(res)  return Result.ok()
                 .message("感谢你的评论");
         else return Result.error()
                 .message("服务出现错误，请稍后再试!");
