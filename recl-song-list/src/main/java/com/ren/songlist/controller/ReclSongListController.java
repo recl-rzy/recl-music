@@ -25,6 +25,7 @@ import java.util.List;
 @Api(tags = "歌单接口")
 @RestController
 @RequestMapping("/song-list")
+@CrossOrigin
 public class ReclSongListController {
 
     @Autowired
@@ -61,7 +62,7 @@ public class ReclSongListController {
     }
 
     @ApiOperation(value = "获取所有歌单")
-    @GetMapping("/all-songlist")
+    @GetMapping("/all")
     public Result getAllSongList() {
         List<ReclSongList> songLists = reclSongListService.list(null);
         return Result.ok()
@@ -86,6 +87,27 @@ public class ReclSongListController {
         List<ReclSongList> songLists = reclSongListService.list(wrapper);
         return Result.ok()
                 .data("songLists", songLists);
+    }
+
+    @ApiOperation(value = "歌单更新")
+    @PutMapping("")
+    public Result updateSongList(HttpServletRequest req) {
+        //获取请求参数
+        String id = req.getParameter("id").trim();
+        String title = req.getParameter("title").trim();
+        String introduction = req.getParameter("introduction").trim();
+        String style = req.getParameter("style").trim();
+        //请求参数封装
+        ReclSongList songList = new ReclSongList();
+        songList.setId(id)
+                .setStyle(style)
+                .setTitle(title)
+                .setIntroduction(introduction);
+        boolean res = reclSongListService.updateById(songList);
+        if(res) return Result.ok()
+                .message("歌单更新成功");
+        else return Result.error()
+                .message("歌单更新失败，请稍后再试！");
     }
 }
 

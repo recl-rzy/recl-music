@@ -7,8 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="recl-collect" />
         <module name="recl-song" />
         <module name="recl-common" />
+        <module name="recl-singer" />
         <module name="recl-comment" />
         <module name="recl-interface" />
         <module name="recl-utils" />
@@ -20,10 +22,12 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="recl-base" options="-parameters" />
+      <module name="recl-collect" options="-parameters" />
       <module name="recl-comment" options="-parameters" />
       <module name="recl-common" options="-parameters" />
       <module name="recl-interface" options="-parameters" />
       <module name="recl-music" options="" />
+      <module name="recl-singer" options="-parameters" />
       <module name="recl-song" options="-parameters" />
       <module name="recl-song-list" options="-parameters" />
       <module name="recl-utils" options="-parameters" />
