@@ -11,7 +11,8 @@
         <module>recl-comment</module>
         <module>recl-song-list</module>
         <module>recl-singer</module>
-        <module>recl-collect</module>
+        <module>recl-collection</module>
+        <module>recl-rank</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

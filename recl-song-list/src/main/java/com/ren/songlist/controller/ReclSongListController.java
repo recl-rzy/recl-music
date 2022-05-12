@@ -22,7 +22,7 @@ import java.util.List;
  * @since 2022-05-11
  */
 
-@Api(tags = "歌单接口")
+@Api(tags = "歌单具体信息接口")
 @RestController
 @RequestMapping("/song-list")
 @CrossOrigin
