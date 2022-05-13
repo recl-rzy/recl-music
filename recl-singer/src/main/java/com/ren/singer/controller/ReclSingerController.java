@@ -99,7 +99,7 @@ public class ReclSingerController {
     @GetMapping("/name/detail")
     public Result getSingerByName(@RequestParam String name) {
         //生成key
-        String key = RedisKeyPrefix.SINGER_OF_NAME_CACHE_KEY;
+        String key = RedisKeyPrefix.SINGER_OF_NAME_CACHE_KEY + name;
         List<ReclSinger> singers = null;
         //查询redis
         singers = (List<ReclSinger>) redisTemplate.opsForValue().get(key);
@@ -117,7 +117,7 @@ public class ReclSingerController {
     @GetMapping("/sex/detail")
     public Result getSingerBySex(@RequestParam Integer sex) {
         //生成key
-        String key = RedisKeyPrefix.SINGER_OF_SEX_CACHE_KEY;
+        String key = RedisKeyPrefix.SINGER_OF_SEX_CACHE_KEY + sex;
         List<ReclSinger> singers = null;
         singers = (List<ReclSinger>) redisTemplate.opsForValue().get(key);
         if (singers != null) return Result.ok()

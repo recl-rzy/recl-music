@@ -84,7 +84,7 @@ public class ReclSongListController {
     @ApiOperation(value = "歌单标题搜索")
     @GetMapping("/title/detail")
     public Result getSongListByTitle(@RequestParam String title) {
-        String key = RedisKeyPrefix.SONGLIST_OF_TITLE_CACHE_KEY;
+        String key = RedisKeyPrefix.SONGLIST_OF_TITLE_CACHE_KEY + title;
         List<ReclSongList> songLists = null;
         songLists = (List<ReclSongList>) redisTemplate.opsForValue().get(key);
         if(songLists != null) return Result.ok()
@@ -100,7 +100,7 @@ public class ReclSongListController {
     @ApiOperation(value = "指定类型歌单")
     @GetMapping("/style/detail")
     public Result getSongListByDetail(@RequestParam String style) {
-        String key = RedisKeyPrefix.SONGLIST_OF_STYLE_CACHE_KEY;
+        String key = RedisKeyPrefix.SONGLIST_OF_STYLE_CACHE_KEY + style;
         List<ReclSongList> songLists = null;
         songLists = (List<ReclSongList>) redisTemplate.opsForValue().get(key);
         if(songLists != null) return Result.ok()
