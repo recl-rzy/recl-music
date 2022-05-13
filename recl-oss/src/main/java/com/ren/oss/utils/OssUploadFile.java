@@ -39,7 +39,7 @@ public class OssUploadFile {
             String fileName = file.getOriginalFilename();
 
             //生成随机UUID
-            String uuid = UUID.randomUUID().toString().replace("-", "");
+            String uuid = UUID.randomUUID().toString().replace("-", "").substring(1, 6);
 
             //生成唯一文件名
             fileName = prefix + uuid + fileName;
@@ -51,7 +51,7 @@ public class OssUploadFile {
             ossClient.shutdown();
 
             //返回文件访问路径url
-            return fileName;
+            return "/" + fileName;
 
         } catch (Exception e) {
 

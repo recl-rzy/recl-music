@@ -1,7 +1,11 @@
 package com.ren.oss;
 
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @ClassName: OssApplication
@@ -11,7 +15,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: v1.0
  */
 
-@SpringBootApplication
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@EnableDiscoveryClient
+@EnableDubbo
+@ComponentScan(basePackages = "com.ren")
 public class OssApplication {
     public static void main(String[] args) {
         SpringApplication.run(OssApplication.class, args);

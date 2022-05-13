@@ -28,7 +28,7 @@ public class ReclOssServiceImpl implements ReclOssService {
     public String uploadFileAvatarImg(MultipartFile file) {
 
         //生成文件名前缀
-        String prefix = "/recl-music/img/avatarImages/";
+        String prefix = "recl-music/img/avatarImages/";
         //返回生产的Url
         return OssUploadFile.upload(file, prefix);
     }
@@ -37,7 +37,7 @@ public class ReclOssServiceImpl implements ReclOssService {
     public String uploadFileMusic(MultipartFile file) {
 
         //生成文件名前缀
-        String prefix = "/recl-music/music/";
+        String prefix = "recl-music/music/";
         //返回生产的Url
         return OssUploadFile.upload(file, prefix);
     }
@@ -45,7 +45,7 @@ public class ReclOssServiceImpl implements ReclOssService {
     @Override
     public String uploadFileSingerImg(MultipartFile file) {
         //生成文件名前缀
-        String prefix = "/recl-music/img/singerPic/";
+        String prefix = "recl-music/img/singerPic/";
         //返回生产的Url
         return OssUploadFile.upload(file, prefix);
     }
@@ -53,7 +53,7 @@ public class ReclOssServiceImpl implements ReclOssService {
     @Override
     public String uploadFileSongListImg(MultipartFile file) {
         //生成文件名前缀
-        String prefix = "/recl-music/img/songListPic/";
+        String prefix = "recl-music/img/songListPic/";
         //返回生产的Url
         return OssUploadFile.upload(file, prefix);
     }
@@ -61,7 +61,7 @@ public class ReclOssServiceImpl implements ReclOssService {
     @Override
     public String uploadFileSongImg(MultipartFile file) {
         //生成文件名前缀
-        String prefix = "/recl-music/img/songPic/";
+        String prefix = "recl-music/img/songPic/";
         //返回生产的Url
         return OssUploadFile.upload(file, prefix);
     }

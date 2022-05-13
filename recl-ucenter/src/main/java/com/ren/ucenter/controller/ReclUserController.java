@@ -8,6 +8,7 @@ import com.ren.ucenter.utils.MD5;
 import com.ren.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -98,6 +99,7 @@ public class ReclUserController {
         return Result.error()
                 .message("原始密码有误，请输入重试!");
     }
+
 
 }
 
