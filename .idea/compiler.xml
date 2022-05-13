@@ -11,9 +11,11 @@
         <module name="recl-common" />
         <module name="recl-collection" />
         <module name="recl-singer" />
+        <module name="recl-ucenter" />
         <module name="recl-comment" />
         <module name="recl-interface" />
         <module name="recl-utils" />
+        <module name="recl-oss" />
         <module name="recl-base" />
         <module name="recl-rank" />
         <module name="recl-song-list" />
@@ -28,10 +30,12 @@
       <module name="recl-common" options="-parameters" />
       <module name="recl-interface" options="-parameters" />
       <module name="recl-music" options="" />
+      <module name="recl-oss" options="-parameters" />
       <module name="recl-rank" options="-parameters" />
       <module name="recl-singer" options="-parameters" />
       <module name="recl-song" options="-parameters" />
       <module name="recl-song-list" options="-parameters" />
+      <module name="recl-ucenter" options="-parameters" />
       <module name="recl-utils" options="-parameters" />
     </option>
   </component>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>recl-songlist</artifactId>
+    <artifactId>recl-ucenter</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -27,12 +27,6 @@
         <dependency>
             <groupId>com.ren</groupId>
             <artifactId>recl-utils</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.ren</groupId>
-            <artifactId>recl-interface</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

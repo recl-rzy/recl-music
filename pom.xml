@@ -13,6 +13,8 @@
         <module>recl-singer</module>
         <module>recl-collection</module>
         <module>recl-rank</module>
+        <module>recl-ucenter</module>
+        <module>recl-oss</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

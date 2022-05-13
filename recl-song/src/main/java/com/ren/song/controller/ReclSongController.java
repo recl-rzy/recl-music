@@ -2,14 +2,17 @@ package com.ren.song.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.ren.dubboservice.ListSongService;
 import com.ren.song.entity.ReclSong;
 import com.ren.song.service.ReclSongService;
 import com.ren.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,6 +32,9 @@ public class ReclSongController {
 
     @Autowired
     ReclSongService reclSongService;
+
+    @Reference(parameters = {"unicast", "false"}, mock = "com.ren.dubboservice.impl.ListSongServiceImpl")
+    ListSongService listSongService;
 
     @ApiOperation(value = "歌曲删除")
     @DeleteMapping("/{id}")
@@ -75,5 +81,17 @@ public class ReclSongController {
         return Result.ok()
                 .data("songs", songs);
     }
+
+    @ApiOperation(value = "获取歌单中的所有歌曲")
+    @GetMapping("/list-song/{songListId}")
+    public Result getSongsFromListSongId(@PathVariable String songListId) {
+        List<String> songIds = listSongService.getSongIds(songListId);
+        if(songIds.isEmpty()) return Result.ok()
+                .data("songs", new ArrayList<ReclSong>());
+        List<ReclSong> songs = (List<ReclSong>) reclSongService.listByIds(songIds);
+        return Result.ok()
+                .data("songs", songs);
+    }
+
 }
 
