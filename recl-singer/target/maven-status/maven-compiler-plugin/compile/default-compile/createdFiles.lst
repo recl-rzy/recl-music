@@ -1,0 +1,7 @@
+com\ren\singer\service\impl\ReclSingerServiceImpl.class
+com\ren\singer\controller\ReclSingerController.class
+com\ren\singer\entity\ReclSinger.class
+com\ren\singer\service\ReclSingerService.class
+com\ren\singer\SingerApplication.class
+com\ren\singer\mapper\ReclSingerMapper.class
+com\ren\singer\utils\DateUtil.class

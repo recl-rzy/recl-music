@@ -1,0 +1,6 @@
+com\ren\songlist\entity\ReclSongList.class
+com\ren\songlist\service\ReclSongListService.class
+com\ren\songlist\mapper\ReclSongListMapper.class
+com\ren\songlist\service\impl\ReclSongListServiceImpl.class
+com\ren\songlist\controller\ReclSongListController.class
+com\ren\songlist\SongListApplication.class

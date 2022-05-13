@@ -1,0 +1,6 @@
+com\ren\comment\CommentApplication.class
+com\ren\comment\entity\ReclComment.class
+com\ren\comment\mapper\ReclCommentMapper.class
+com\ren\comment\service\impl\ReclCommentServiceImpl.class
+com\ren\comment\controller\ReclCommentController.class
+com\ren\comment\service\ReclCommentService.class
