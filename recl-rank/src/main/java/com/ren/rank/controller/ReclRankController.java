@@ -61,8 +61,8 @@ public class ReclRankController {
     }
 
     @ApiOperation(value = "获取用户评分")
-    @GetMapping("/user/{userId}/{songListId}")
-    public Result getRankByUserId(@PathVariable String userId, @PathVariable String songListId) {
+    @GetMapping("/user")
+    public Result getRankByUserId(@RequestParam String userId, @RequestParam String songListId) {
         ReclRank rank = reclRankService.getOne(new QueryWrapper<ReclRank>()
                 .eq("user_id", userId)
                 .eq("song_list_id", songListId)

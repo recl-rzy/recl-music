@@ -12,7 +12,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface ReclOssService {
 
-    String uploadFileImg(MultipartFile file);
+    String uploadFileAvatarImg(MultipartFile file);
 
     String uploadFileMusic(MultipartFile file);
+
+    String uploadFileSingerImg(MultipartFile file);
+
+    String uploadFileSongListImg(MultipartFile file);
+
+    String uploadFileSongImg(MultipartFile file);
 }

@@ -48,6 +48,7 @@ public class ReclCollectionController {
                 .setType(Integer.valueOf(type));
         boolean res = reclCollectionService.save(collection);
         if(res) return Result.ok()
+                .data("status", true)
                 .message("歌曲收藏成功");
         else return Result.error()
                 .message("歌曲收藏失败，请稍后再试!");
@@ -60,6 +61,7 @@ public class ReclCollectionController {
                 .set("user_id", userId)
                 .set("song_id", songId));
         if(res) return Result.ok()
+                .data("status", false)
                 .message("取消收藏成功");
         else return Result.error()
                 .message("取消收藏失败，请稍后再试");

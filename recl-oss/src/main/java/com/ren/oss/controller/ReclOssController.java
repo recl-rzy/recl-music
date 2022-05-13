@@ -27,15 +27,33 @@ public class ReclOssController {
     @Autowired
     ReclOssService reclOssService;
 
-    @ApiOperation(value = "图片上传")
-    @PostMapping("/img")
-    public String uploadImg(MultipartFile file) {
-        return reclOssService.uploadFileImg(file);
+    @ApiOperation(value = "头像上传")
+    @PostMapping("/avatar")
+    public String uploadAvatarImg(MultipartFile file) {
+        return reclOssService.uploadFileAvatarImg(file);
     }
 
     @ApiOperation(value = "音乐上传")
     @PostMapping("/music")
     public String uploadMusic(MultipartFile file) {
         return reclOssService.uploadFileMusic(file);
+    }
+
+    @ApiOperation(value = "歌手封面上传")
+    @PostMapping("/singer-pic")
+    public String uploadSingerPicImg(MultipartFile file) {
+        return reclOssService.uploadFileSingerImg(file);
+    }
+
+    @ApiOperation(value = "歌单封面上穿")
+    @PostMapping("/song-list-pic")
+    public String uploadSongListPic(MultipartFile file) {
+        return reclOssService.uploadFileSongListImg(file);
+    }
+
+    @ApiOperation(value = "歌曲封面上传")
+    @PostMapping("/song-pic")
+    public String uploadSongPic(MultipartFile file) {
+        return reclOssService.uploadFileSongImg(file);
     }
 }

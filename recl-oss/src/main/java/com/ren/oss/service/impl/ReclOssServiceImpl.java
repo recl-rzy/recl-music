@@ -5,6 +5,7 @@ import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
 import com.ren.oss.service.ReclOssService;
+import com.ren.oss.utils.OssUploadFile;
 import com.ren.oss.utils.PropertiesUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,103 +25,45 @@ import java.util.UUID;
 public class ReclOssServiceImpl implements ReclOssService {
 
     @Override
-    public String uploadFileImg(MultipartFile file) {
-        // yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
-        String endpoint = PropertiesUtils.END_POINT;
-        // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
-        String accessKeyId = PropertiesUtils.KEY_ID;
-        String accessKeySecret = PropertiesUtils.KEY_SECRET;
-        String bucketName = PropertiesUtils.BUCKET_NAME;
+    public String uploadFileAvatarImg(MultipartFile file) {
 
-
-        try {
-            // 创建OSSClient实例。
-            OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
-
-            // 填写本地文件的完整路径。如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件流。
-            InputStream inputStream = file.getInputStream();
-            //获取文件名称
-            String fileName = file.getOriginalFilename();
-
-            //生成随机UUID
-            //String uuid = UUID.randomUUID().toString().replace("-", "");
-
-            //fileName = uuid + fileName;
-            fileName = "recl-music/img/" + fileName;
-
-            // 依次填写Bucket名称（例如examplebucket）和Object完整路径（例如exampledir/exampleobject.txt）。Object完整路径中不能包含Bucket名称。
-            ossClient.putObject(bucketName, fileName, inputStream);
-
-            // 关闭OSSClient。
-            ossClient.shutdown();
-
-            String url = "https://" + bucketName + "." + endpoint + "/" + fileName;
-
-            return url;
-
-        } catch (OSSException e) {
-
-            e.printStackTrace();
-            return null;
-        } catch (ClientException e) {
-
-            e.printStackTrace();
-            return null;
-        } catch (Exception e) {
-
-            e.printStackTrace();
-            return null;
-        }
+        //生成文件名前缀
+        String prefix = "/recl-music/img/avatarImages/";
+        //返回生产的Url
+        return OssUploadFile.upload(file, prefix);
     }
 
     @Override
     public String uploadFileMusic(MultipartFile file) {
-        // yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
-        String endpoint = PropertiesUtils.END_POINT;
-        // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
-        String accessKeyId = PropertiesUtils.KEY_ID;
-        String accessKeySecret = PropertiesUtils.KEY_SECRET;
-        String bucketName = PropertiesUtils.BUCKET_NAME;
 
+        //生成文件名前缀
+        String prefix = "/recl-music/music/";
+        //返回生产的Url
+        return OssUploadFile.upload(file, prefix);
+    }
 
-        try {
-            // 创建OSSClient实例。
-            OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+    @Override
+    public String uploadFileSingerImg(MultipartFile file) {
+        //生成文件名前缀
+        String prefix = "/recl-music/img/singerPic/";
+        //返回生产的Url
+        return OssUploadFile.upload(file, prefix);
+    }
 
-            // 填写本地文件的完整路径。如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件流。
-            InputStream inputStream = file.getInputStream();
-            //获取文件名称
-            String fileName = file.getOriginalFilename();
+    @Override
+    public String uploadFileSongListImg(MultipartFile file) {
+        //生成文件名前缀
+        String prefix = "/recl-music/img/songListPic/";
+        //返回生产的Url
+        return OssUploadFile.upload(file, prefix);
+    }
 
-            //生成随机UUID
-            String uuid = UUID.randomUUID().toString().replace("-", "");
-
-            fileName = uuid + fileName;
-            fileName = "recl-music/music/" + fileName;
-
-            // 依次填写Bucket名称（例如examplebucket）和Object完整路径（例如exampledir/exampleobject.txt）。Object完整路径中不能包含Bucket名称。
-            ossClient.putObject(bucketName, fileName, inputStream);
-
-            // 关闭OSSClient。
-            ossClient.shutdown();
-
-            String url = "https://" + bucketName + "." + endpoint + "/" + fileName;
-
-            return url;
-
-        } catch (OSSException e) {
-
-            e.printStackTrace();
-            return null;
-        } catch (ClientException e) {
-
-            e.printStackTrace();
-            return null;
-        } catch (Exception e) {
-
-            e.printStackTrace();
-            return null;
-        }
+    @Override
+    public String uploadFileSongImg(MultipartFile file) {
+        //生成文件名前缀
+        String prefix = "/recl-music/img/songPic/";
+        //返回生产的Url
+        return OssUploadFile.upload(file, prefix);
     }
 
 }
