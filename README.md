@@ -26,7 +26,7 @@ github开源音乐平台，原本为SpringBoot单一应用，比较简单；个�
 
 原项目后端结构图：
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513222633.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/img/singerPic/1560014170181tou.jpg)
 
 
 我重构后的结构图
