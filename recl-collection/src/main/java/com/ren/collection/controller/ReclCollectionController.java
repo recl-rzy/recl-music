@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ *  歌曲收藏接口
  * </p>
  *
  * @author RZY
