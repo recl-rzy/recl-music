@@ -26,12 +26,12 @@ github开源音乐平台，原本为SpringBoot单一应用，比较简单；个�
 
 原项目后端结构图：
 
-![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/img/singerPic/1560014170181tou.jpg)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513222633.png)
 
 
 我重构后的结构图
 
-![输入图片说明](https://github.com/recl-rzy/recl-music/blob/master/QQ%E5%9B%BE%E7%89%8720220513211549.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513211549.png)
 
 
 ### recl-common
@@ -151,27 +151,27 @@ public class OssUploadFile {
 
 4.Nacos-config统一管理配置文件
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513211723.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513211723.png)
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513211745.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513211745.png)
 
 
 5.前端挺优雅
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513212050.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513212050.png)
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513212117.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513212117.png)
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513212724.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513212724.png)
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513212754.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513212754.png)
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513212837.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513212837.png)
 
 
 6.熟悉前端整体结构的熟悉花了很长时间，前后端接口整合还好。但跨域问题把人折磨透了，因为原本项目的音频、图片资源放在了项目本地目录下，但个人觉得麻烦直接将所有文件迁移到OSS，前端访问、特别是下载出现跨域问题，最终通过服务代理才解决
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513223351.png)
+![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513223351.png)
 
 
 
