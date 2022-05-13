@@ -2,16 +2,19 @@ package com.ren.songlist.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.ren.songlist.constant.RedisKeyPrefix;
 import com.ren.songlist.entity.ReclSongList;
 import com.ren.songlist.service.ReclSongListService;
 import com.ren.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -30,6 +33,9 @@ public class ReclSongListController {
 
     @Autowired
     ReclSongListService reclSongListService;
+
+    @Autowired
+    RedisTemplate<String, Object> redisTemplate;
 
     @ApiOperation(value = "添加歌单")
     @PostMapping("")
@@ -64,7 +70,13 @@ public class ReclSongListController {
     @ApiOperation(value = "获取所有歌单")
     @GetMapping("/all")
     public Result getAllSongList() {
-        List<ReclSongList> songLists = reclSongListService.list(null);
+        String key = RedisKeyPrefix.ALL_SONGLIST_CACHE_KEY;
+        List<ReclSongList> songLists = null;
+        songLists = (List<ReclSongList>) redisTemplate.opsForValue().get(key);
+        if(songLists != null) return Result.ok()
+                .data("songLists", songLists);
+        songLists = reclSongListService.list(null);
+        redisTemplate.opsForValue().set(key, songLists, 60, TimeUnit.MINUTES);
         return Result.ok()
                 .data("songLists", songLists);
     }
@@ -72,9 +84,15 @@ public class ReclSongListController {
     @ApiOperation(value = "歌单标题搜索")
     @GetMapping("/title/detail")
     public Result getSongListByTitle(@RequestParam String title) {
+        String key = RedisKeyPrefix.SONGLIST_OF_TITLE_CACHE_KEY;
+        List<ReclSongList> songLists = null;
+        songLists = (List<ReclSongList>) redisTemplate.opsForValue().get(key);
+        if(songLists != null) return Result.ok()
+                .data("songLists", songLists);
         QueryWrapper<ReclSongList> wrapper = new QueryWrapper<>();
         wrapper.like("title", title);
-        List<ReclSongList> songLists = reclSongListService.list(wrapper);
+        songLists = reclSongListService.list(wrapper);
+        redisTemplate.opsForValue().set(key, songLists, 60, TimeUnit.MINUTES);
         return Result.ok()
                 .data("songLists", songLists);
     }
@@ -82,9 +100,15 @@ public class ReclSongListController {
     @ApiOperation(value = "指定类型歌单")
     @GetMapping("/style/detail")
     public Result getSongListByDetail(@RequestParam String style) {
+        String key = RedisKeyPrefix.SONGLIST_OF_STYLE_CACHE_KEY;
+        List<ReclSongList> songLists = null;
+        songLists = (List<ReclSongList>) redisTemplate.opsForValue().get(key);
+        if(songLists != null) return Result.ok()
+                .data("songLists", songLists);
         QueryWrapper<ReclSongList> wrapper = new QueryWrapper<>();
         wrapper.like("style", style);
-        List<ReclSongList> songLists = reclSongListService.list(wrapper);
+        songLists = reclSongListService.list(wrapper);
+        redisTemplate.opsForValue().set(key, songLists, 60, TimeUnit.MINUTES);
         return Result.ok()
                 .data("songLists", songLists);
     }
