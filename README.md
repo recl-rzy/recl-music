@@ -31,7 +31,7 @@ github开源音乐平台，原本为SpringBoot单一应用，比较简单；个�
 
 我重构后的结构图
 
-![输入图片说明](QQ%E5%9B%BE%E7%89%8720220513211549.png)
+![输入图片说明](https://github.com/recl-rzy/recl-music/blob/master/QQ%E5%9B%BE%E7%89%8720220513211549.png)
 
 
 ### recl-common
