@@ -169,7 +169,7 @@ public class OssUploadFile {
 ![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513212837.png)
 
 
-6.熟悉前端整体结构的熟悉花了很长时间，前后端接口整合还好。但跨域问题把人折磨透了，因为原本项目的音频、图片资源放在了项目本地目录下，但个人觉得麻烦直接将所有文件迁移到OSS，前端访问、特别是下载出现跨域问题，最终通过服务代理才解决
+6.熟悉前端整体结构的熟悉花了很长时间，前后端接口整合还好。vue-config需要设置服务器代理，否则无法访问OSS的资源文件
 
 ![输入图片说明](https://recl-edu.oss-cn-beijing.aliyuncs.com/recl-music/github/QQ%E5%9B%BE%E7%89%8720220513223351.png)
 
